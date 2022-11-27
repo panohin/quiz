@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Тест {{ object.title }}</title>
+</head>
+<body>
+	<h2>{{ object.title }}</h2>
+	{% for question in object.questions.all %}
+	<form action="{% url 'TestList' %}" method="post">
+		{% csrf_token %}
+		<fieldset>
+		<legend>{{ question.text }}</legend>
+		{% for answer in question.answer_set.all %}
+		<label><input type="radio" name="answer" value="{{ answer.id }}">
+		{{ answer.text }}</label><br>
+		{% endfor %}
+		<button type="submit">Ответить</button>
+		</fieldset>
+		{% endfor %}
+				
+	</form>
+
+	
+	
+</body>
+</html>
