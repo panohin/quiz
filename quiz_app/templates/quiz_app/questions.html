@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Тест {{ object.title }}</title>
+	<title>Тест</title>
 </head>
 <body>
-	<h2>{{ object.title }}</h2>
-	{% for question in object.questions.all %}
-	<form action="{% url 'TestList' %}" method="post">
+	{% for question in object_list %}
+	<form action="" method="post">
 		{% csrf_token %}
 		<fieldset>
 		<legend>{{ question.text }}</legend>
@@ -17,7 +16,7 @@
 		<button type="submit">Ответить</button>
 		</fieldset>
 		{% endfor %}
-				
+	
 	</form>
 
 	
