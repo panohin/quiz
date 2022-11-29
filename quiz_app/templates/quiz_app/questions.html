@@ -12,6 +12,9 @@
 		{% for answer in question.answer_set.all %}
 		<label><input type="radio" name="answer" value="{{ answer.id }}">
 		{{ answer.text }}</label><br>
+		{% if answer.has_next %}
+		YES
+		{% endif %}
 		{% endfor %}
 		<button type="submit">Ответить</button>
 		</fieldset>
